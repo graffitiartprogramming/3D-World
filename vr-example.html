@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <script src="https://gap-3d-world.glitch.me/aframe.min.js"></script>
+    
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui="enabled: false">
+      <a-assets>
+        <img
+          id="texture1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/R0010143_20231024131342.jpeg?v=1713380565581"
+        />
+        <a-asset-item
+          id="model1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphere.obj?v=1713380568144"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity id="cameraRig" position="0 0 0">
+        <a-entity
+          rotation="0 0 0"
+          id="pov"
+          animation="property: position; startEvents: go"
+        >
+          <a-camera look-controls wasd-controls-enabled="true" id="camera">
+            <a-entity
+              cursor="rayOrigin: mouse"
+              raycaster="objects: #clickablePlane"
+            >
+            </a-entity>
+          </a-camera>
+        </a-entity>
+      </a-entity>
+
+      <a-sphere
+        id="ground"
+        src="#model1"
+        position="0 1 0"
+        rotation="0 9 0"
+        scale="10 10 10"
+        material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0; shader: flat;"
+      ></a-sphere>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/2.png?v=1716495802509"
+        position="4.61863 -1.80628 -6.10045"
+        scale="8 8 5"
+        rotation="0 -45 0"
+        material="alphaTest: 0.01;"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/1.png?v=1716495801858"
+        position="0 -0.17476 -8.55196"
+        scale="8 8 8"
+        material="alphaTest: 0.01;"
+      ></a-image>
+      
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/3.png?v=1716495803089"
+       position="3.98373 -0.17476 -7.74043"
+               rotation="0 -24.95 0"
+        scale="8 8 8"
+        material="alphaTest: 0.01;"
+      ></a-image>
+      
+      
+     
+      <!--- look at camera-->
+      <script>
+        AFRAME.registerComponent("look-at-camera", {
+          tick: function () {
+            // Get the camera position
+            var camera = document.querySelector("a-camera");
+            var cameraPosition = camera.getAttribute("position");
+
+            // Get the current position and rotation of the entity
+            var entityPosition = this.el.getAttribute("position");
+            var entityRotation = this.el.getAttribute("rotation");
+
+            // Calculate the rotation that the entity should have to face the camera
+            var targetRotation =
+              (Math.atan2(
+                cameraPosition.x - entityPosition.x,
+                cameraPosition.z - entityPosition.z
+              ) *
+                180) /
+              Math.PI;
+
+            // Set the rotation of the entity to face the camera
+            this.el.setAttribute("rotation", {
+              x: entityRotation.x,
+              y: targetRotation,
+              z: entityRotation.z,
+            });
+          },
+        });
+      </script>
+    </a-scene>
+  </body>
+</html>

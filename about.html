@@ -1,0 +1,391 @@
+<html lang="en">
+<head>
+  
+    <!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRB6ZZ4G95"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-CRB6ZZ4G95');
+
+</script>
+  
+  
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <title>3D World: Inner City Inspirations</title>
+    <style>
+body {
+    font-family: Pangolin;
+    style="background-color: white;"
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+      
+      
+.shadowboxes {
+    display: inline-block; /* Ensures the shadowboxes section respects the centering */
+    text-align: center; /* Center-align images inside the shadowboxes */
+}
+
+.shadowboxes img {
+    max-width: 100vw; /* Keep images slightly smaller than full viewport width */
+    display: inline-block; /* Ensures images can be centered */
+    margin: 0 auto;
+}
+      
+      
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative; /* Added to ensure pseudo-elements are positioned relative to the container */
+}
+
+.header, .main-title, .subtitle, .icons-section, .paragraph-section, .main-website {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.header::before, .main-title::before, .subtitle::before, .icons-section::before, .paragraph-section::before, .main-website::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.header::before {
+    background-color: #4a0e71;
+}
+
+.main-title::before {
+    
+}
+
+.subtitle::before {
+    background-color: white;
+}
+
+.icons-section {
+    background: linear-gradient(to right, #ff0000 2px, transparent 2px), /* Red vertical line */
+                repeating-linear-gradient(
+                    #add8e6, #add8e6 1px, /* Blue line */
+                    transparent 1px, transparent 24px /* Space between lines */
+                );
+    background-size: 100% 26px; /* Adjust based on the line spacing */
+    background-color: #f5f5dc; /* Cream color */
+}
+
+.paragraph-section::before {
+    background-color: white;
+}
+      
+      
+
+.main-website::before {
+    background-color: #4a0e71;
+    height: 10vh; /* Extend to the full height of the viewport */
+    bottom: auto;
+    
+}
+
+.header {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 25px 8px;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 4vh;
+    color: #e35823;
+    text-shadow: 0.5px 0.5px 0 #f5e379;
+    padding: 20px 8px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 24px;
+    color: #e53935;
+    padding-bottom: 20px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.instructions {
+    text-align: left;
+    margin: 20px 0;
+    color: white;
+    text-shadow: 0 0 0;
+    padding: 20px 8px;
+    overflow: hidden;
+}
+
+.instructions img {
+    float: right;
+    max-width: 60%;
+    height: auto;
+    margin-left: 10px;
+    shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+    shape-margin: 15px;
+    -webkit-shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+}
+
+@media screen and (min-width: 361px) {
+    div.instructions {
+        font-size: 45px;
+    }
+
+    .a {
+        font-size: 25px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    div.instructions {
+        font-size: 25px;
+    }
+
+    .a {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    div.instructions {
+        font-size: 60px;
+    }
+
+    .a {
+        font-size: 35px;
+    }
+}
+
+.icons-section {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow */
+    position: relative;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icons div {
+    margin: 0 10px;
+}
+
+.icons img {
+    width: 35vw;
+    max-width: 300px;
+    height: auto;
+}
+
+.icons p {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+}
+
+.paragraph-section {
+    text-align: center; /* Center-align the content inside this section */
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.main-website {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+}
+
+.pangolin-regular {
+    font-family: "Pangolin", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        padding: 0;
+    }
+}
+
+        @keyframes choppy-rotation {
+            0% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+            100% { transform: rotate(-2deg); }
+        }
+
+        #world1 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #world2 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #phone {
+            animation: choppy-rotation 0.8s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+      
+      
+       @keyframes logoscale {
+            0% { transform: scale(100%); }
+            50% { transform: scale(105%); }
+            100% { transform:scale(100%); }
+        }
+
+        .logoscale {
+            animation: logoscale 0.5s infinite;
+             animation-timing-function: cubic-bezier(0.68, 0.27, 1.55);
+        }
+      
+      
+    </style>
+</head>
+  <div class="container">
+        <div class="header">
+            GRAFFITI ART PROGRAMMING
+        </div>
+  </div>
+  
+  <div class="subtitle">
+            
+        </div>
+  
+  
+  <div class="shadowboxes" >
+                
+      
+              <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/spreadworld1.jpg?v=1727129963076" 
+                                 
+                                >
+               <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/spreadworld2.jpg?v=1727129964028" 
+                               
+                                >
+               <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/spreadworld3.jpg?v=1727129964748" 
+                                
+                                >
+               <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/spreadworld4.jpg?v=1727130013000" 
+                                
+                                >
+                
+                 </div>
+<body>
+
+        <div class="content"
+             >
+            <div class="paragraph-section" style="font-size: 20px;">
+                
+        <a href="https://gap-3d-world.glitch.me/index.html">main menu</a>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+                
+              
+              
+      <br>
+      <br>
+    
+      
+      "3D World" is a project created during
+                  Graffiti Art Programming Inc.’s st.ART Program in the
+                  summer of 2024 with participants from Ralph Brown Community
+                  Centre.
+      3D World turns Inner City kids into inspirers who reimagine their own community spaces through a blend of augmented reality (AR) and virtual reality (VR). 
+     By merging the creative visions of youth, their drawings and designs 
+      become valuable assets, fueling the AR/VR experiences created together as they turn 
+      dreams into dreamscapes - imaginary landscapes that encapsulate the ambitious visions of 
+      neighborhood transformation.
+      
+     
+
+      
+      "3D World" is projected to be displayed under the VA railway underpass at The Forks in Winnipeg MB, estimated September 2024.
+        
+        
+      <br>
+      <br>
+       
+      3D World coded by Winnipeg Artist <a href="https://www.instagram.com/hj.hamade/?hl=en" >Hiroshi Jake Hamade</a>
+              
+      <br>
+      <br>
+              
+              
+             
+          
+             
+              
+      
+              
+              <div class="main-title">
+            <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/3dworld%20title.png?v=1720389160217" 
+                 width="50%" 
+                 height="auto" 
+                 align="center"
+                class="logoscale">
+           
+            
+        </div>
+      </div>
+      </div>
+      
+      
+                
+              
+        
+</body>
+  
+   
+  <div class="main-website">
+    <a href="https://www.graffitigallery.ca/" class="main-website">Main Website</a>
+  </div>
+  
+</html>

@@ -1,0 +1,544 @@
+<html>
+  <head>
+    <script src="https://gap-3d-world.glitch.me/aframe.min.js"></script>
+        <script src="https://gap-3d-world.glitch.me//animate-swings.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-shipride.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-dinoslide.js"></script>
+    
+    
+    <!--IMPORT ANIMATION JS-->
+    <script src="https://gap-3d-world.glitch.me//animate-birds.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-airship2.js"></script>
+
+
+    
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui="enabled: false">
+      <a-assets>
+        <img
+          id="texture1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/rbcourt.JPG?v=1727128092229"
+        />
+        <a-asset-item
+          id="model1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphere.obj?v=1713380568144"
+        ></a-asset-item>
+        <a-asset-item
+          id="ground"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphereground.obj?v=1722209687671"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity id="cameraRig" position="0 -1.8 0">
+        <a-entity
+          rotation="0 0 0"
+          id="pov"
+          animation="property: position; startEvents: go"
+        >
+          <a-camera look-controls wasd-controls-enabled="true" id="camera">
+            <a-entity
+              cursor="rayOrigin: mouse"
+              raycaster="objects: #clickablePlane"
+            >
+            </a-entity>
+          </a-camera>
+        </a-entity>
+      </a-entity>
+
+      
+      
+      
+      
+      
+      
+      
+      
+              <a-entity mindar-image-target="targetIndex: 1 ">
+                <a-entity rotation="90 0 0" scale="1.7 1.7 1.7">
+                  <!--- These planes clip the model-->
+                  <a-plane
+                    position="0 -0.0033 -1.82813"
+                    width="1"
+                    height="0.25"
+                    rotation="-90 0 0"
+                    material="shader: flat; transparent: true; opacity: 1; order: 1;"
+                    geometry="width: 5; height: 3"
+                  ></a-plane>
+                  <a-plane
+                    position="0 -0.0033 1.80212"
+                    width="1"
+                    height="0.25"
+                    rotation="-90 0 0"
+                    material="shader: flat; transparent: true; opacity: 1; order: 1;"
+                    geometry="width: 5; height: 3"
+                  ></a-plane>
+                  <a-plane
+                    position="-1.81243 -0.0033 0"
+                    width="1"
+                    height="0.25"
+                    rotation="-90 90 0"
+                    material="shader: flat; transparent: true; opacity: 1; order: 1;"
+                    geometry="width: 5; height: 3"
+                  ></a-plane>
+                  <a-plane
+                    position="1.82237 -0.0033 0"
+                    width="1"
+                    height="0.25"
+                    rotation="-90 90 0"
+                    material="shader: flat; transparent: true; opacity: 1; order: 1;"
+                    geometry="width: 5; height: 3"
+                  ></a-plane>
+
+                  <!a-obj-model
+    id="ground"
+    src="#model1"
+    position="0 -0.01 0"
+    rotation="-90 0 0"
+    scale="0.5 0.5 0.5"
+    material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0;"
+                       model-opacity
+  ><!/a-obj-model>
+
+                  <a-entity
+                    scale="0.05 0.05 0.05"
+                    position="0 -0.01 0"
+                    rotation="-90 0 0"
+                  >
+                    <a-obj-model
+                      id="ground"
+                      src="#model1"
+                      position="0 -6.63727 0"
+                      rotation=""
+                      scale="15 15 15"
+                      material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 -0.04;"
+                      model-opacity
+                    ></a-obj-model>
+
+                    
+                    
+                    
+                    
+                    <a-plane scale="30.52 15.14 0.00001" position="0 -6.63006 -7.589" rotation="-90 0 0" material="src: https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/rbcourtground.jpg; order: 1;" geometry=""></a-plane>
+
+                    
+                    
+                    
+                    
+                    
+            <a-entity scale= "2 2 2"
+                      position="0 6.175 8">
+                    
+                    <a-entity position="0 -6 -7">
+                      <a-entity position="0 3 1.5">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity
+                            animation="property: rotation;
+                            
+                             to: 0 -360 0;
+                             loop: true; 
+                             dur:30000;
+                            easing: linear;
+                             autoplay: true"
+                            id="birds1"
+                          >
+                            <a-image
+                              animate-birds
+                              position="3 0.27495 -0.12069"
+                              rotation="0 -88.82684190289787 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 2.8 0.5s">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity
+                            animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:30000;
+                            easing: linear;
+                             autoplay: true"
+                            id="airship2"
+                          >
+                            <a-image
+                              animate-airship2
+                              position="0 1.056 -2"
+                              rotation="0 -45 0"
+                              width="3"
+                              height="2"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 3.5 1.5">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity
+                            animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:100000;
+                            easing: easeInOutQuad;
+                             autoplay: true"
+                            id="airship1"
+                          >
+                            <a-image
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship.png"
+                              position="3 1.46735 -0"
+                              rotation="0 0 0"
+                              width="1"
+                              height="0.5"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+
+
+
+
+<a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table.png?v=1718648393794" position="-4.46788 0.8 -2.19626" rotation="0 56.492933189350516 0" width="2" height="1.5" look-at-camera="" material="alphaTest: 0.5" geometry=""></a-image>
+
+<a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table.png?v=1718648393794" position="-5.8988 0.8 -0.52828" rotation="0 81.27317347306533 0" width="2" height="1.5" look-at-camera="" material="alphaTest: 0.5" geometry=""></a-image>
+                      <!--CARS ----->
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car1">
+                            <a-image
+                              id="car1image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car1.png"
+                              position="-2 0.5 -0.12287"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car2">
+                            <a-image
+                              id="car2image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car2.png"
+                              position="-2.2 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car3">
+                            <a-image
+                              id="car3image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car3.png"
+                              position="-2.5 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car4">
+                            <a-image
+                              id="car4image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car4.png"
+                              position="-2.7 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car5">
+                            <a-image
+                              id="car5image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car5.png"
+                              position="-3 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car6">
+                            <a-image
+                              id="car6image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car6.png"
+                              position="-3.2 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+
+                      <a-entity position="0 0 0" rotation="0 -120 0">
+                        <a-entity rotation="0 0 0" position="0 0 0">
+                          <a-entity id="car7">
+                            <a-image
+                              id="car7image"
+                              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car7.png"
+                              position="-3.5 0.5 -0.12287"
+                              rotation="0 0 0"
+                              width="1.5"
+                              height="1.5"
+                              look-at-camera
+                              material="alphaTest: 0.5; transparent: true;"
+                            ></a-image>
+                          </a-entity>
+                        </a-entity>
+                      </a-entity>
+                    </a-entity>
+              </a-entity>
+                  
+
+                    <!---randomize speed--->
+                    <script>
+                      function randomizeDuration(carId) {
+                        const minDuration = 9000;
+                        const maxDuration = 20000;
+                        const randomDuration =
+                          Math.floor(
+                            Math.random() * (maxDuration - minDuration + 1)
+                          ) + minDuration;
+                        const carEntity = document.getElementById(carId);
+
+                        // Get current rotation
+                        const currentRotation =
+                          carEntity.object3D.rotation.y * (180 / Math.PI); // Convert radians to degrees
+
+                        // Remove existing animation
+                        carEntity.removeAttribute("animation");
+
+                        // Set the new animation starting from the current rotation
+                        carEntity.setAttribute("animation", {
+                          property: "rotation",
+                          from: `0 ${currentRotation} 0`,
+                          to: `0 ${360 + currentRotation} 0`,
+                          loop: true,
+                          dur: randomDuration,
+                          easing: "linear",
+                          autoplay: true,
+                        });
+                      }
+
+                      function randomizeInterval(carId) {
+                        const minInterval = 1000;
+                        const maxInterval = 5000;
+                        const randomInterval =
+                          Math.floor(
+                            Math.random() * (maxInterval - minInterval + 1)
+                          ) + minInterval;
+
+                        setTimeout(() => {
+                          randomizeDuration(carId);
+                          randomizeInterval(carId); // Call the function recursively
+                        }, randomInterval);
+                      }
+
+                      let isAnyCounterWinner = false;
+
+                      // Function to create and update counters
+                      function createAndTrackCounter(carId, counterId) {
+                        let counter = 0;
+                        let isFirstCounter = false;
+                
+
+                        // Track rotation
+                        setInterval(() => {
+                          const carEntity = document.getElementById(carId);
+                          const currentRotation =
+                            carEntity.object3D.rotation.y * (180 / Math.PI); // Convert radians to degrees
+                          const rotations = Math.floor(currentRotation / 360);
+                          counter = rotations;
+                          counterElement.innerText = `${carId}: ${counter}`;
+
+                          // Check if counter is 1 and mark as winner
+                          if (
+                            counter === 3 &&
+                            !isAnyCounterWinner &&
+                            !isFirstCounter
+                          ) {
+                            isAnyCounterWinner = true;
+                            isFirstCounter = true;
+                            counterElement.style.backgroundColor = "green"; // Set color to green for the winning counter
+                          }
+                        }, 1000); // Update every second
+                      }
+                      
+      // Initial call to randomize the durations and intervals on page load
+      window.onload = function() {
+        randomizeDuration('car1');
+        randomizeInterval('car1');
+        createAndTrackCounter('car1', 1);
+
+        randomizeDuration('car2');
+        randomizeInterval('car2');
+        createAndTrackCounter('car2', 2);
+
+        randomizeDuration('car3');
+        randomizeInterval('car3');
+        createAndTrackCounter('car3', 3);
+
+        randomizeDuration('car4');
+        randomizeInterval('car4');
+        createAndTrackCounter('car4', 4);
+        
+        randomizeDuration('car5');
+        randomizeInterval('car5');
+        createAndTrackCounter('car5', 5);
+        
+        randomizeDuration('car6');
+        randomizeInterval('car6');
+        createAndTrackCounter('car6', 6);
+        
+        randomizeDuration('car7');
+        randomizeInterval('car7');
+        createAndTrackCounter('car7', 7);
+      };
+
+                     
+                    </script>
+
+                    <!--- look at camera-->
+                    <script>
+                      AFRAME.registerComponent("look-at-camera", {
+                        tick: function () {
+                          // Get the camera position
+                          var camera = document.querySelector("a-camera");
+                          var cameraPosition = camera.getAttribute("position");
+
+                          // Get the current position and rotation of the entity
+                          var entityPosition = this.el.getAttribute("position");
+                          var entityRotation = this.el.getAttribute("rotation");
+
+                          // Calculate the rotation that the entity should have to face the camera
+                          var targetRotation =
+                            (Math.atan2(
+                              cameraPosition.x - entityPosition.x,
+                              cameraPosition.z - entityPosition.z
+                            ) *
+                              180) /
+                            Math.PI;
+
+                          // Set the rotation of the entity to face the camera
+                          this.el.setAttribute("rotation", {
+                            x: entityRotation.x,
+                            y: targetRotation,
+                            z: entityRotation.z,
+                          });
+                        },
+                      });
+                    </script>
+                  </a-entity>
+                </a-entity>
+              </a-entity>
+            
+            
+            
+            
+      
+ 
+     
+      <!--- look at camera-->
+      <script>
+        AFRAME.registerComponent("look-at-camera", {
+          tick: function () {
+            // Get the camera position
+            var camera = document.querySelector("a-camera");
+            var cameraPosition = camera.getAttribute("position");
+
+            // Get the current position and rotation of the entity
+            var entityPosition = this.el.getAttribute("position");
+            var entityRotation = this.el.getAttribute("rotation");
+
+            // Calculate the rotation that the entity should have to face the camera
+            var targetRotation =
+              (Math.atan2(
+                cameraPosition.x - entityPosition.x,
+                cameraPosition.z - entityPosition.z
+              ) *
+                180) /
+              Math.PI;
+
+            // Set the rotation of the entity to face the camera
+            this.el.setAttribute("rotation", {
+              x: entityRotation.x,
+              y: targetRotation,
+              z: entityRotation.z,
+            });
+          },
+        });
+      </script>
+    </a-scene>
+  </body>
+</html>

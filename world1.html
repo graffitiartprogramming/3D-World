@@ -1,0 +1,487 @@
+<html>
+  <head>
+        <title>World 1</title>
+
+    <!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRB6ZZ4G95"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-CRB6ZZ4G95');
+
+</script>
+    
+    <script src="https://gap-3d-world.glitch.me/aframe.min.js"></script>
+
+    <script src="https://gap-3d-world.glitch.me//animate-swings.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-shipride.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-dinoslide.js"></script>
+
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+  </head>
+  <body>
+    <a-scene vr-mode-ui="enabled: false">
+      <a-assets>
+        <img
+          id="texture1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/rb.JPG?v=1727128091608"
+        />
+        <a-asset-item
+          id="model1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphere.obj?v=1713380568144"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity id="cameraRig" position="0 0 0">
+        <a-entity
+          rotation="0 0 0"
+          id="pov"
+          animation="property: position; startEvents: go"
+        >
+          <a-camera look-controls wasd-controls-enabled="false" id="camera">
+            <a-entity
+              cursor="rayOrigin: mouse"
+              raycaster="objects: #clickablePlane"
+            >
+            </a-entity>
+          </a-camera>
+        </a-entity>
+      </a-entity>
+
+      <a-sphere
+        id="ground"
+        src="#model1"
+        position="0 1 0"
+        rotation="0 90 2.5"
+        scale="10 10 10"
+        material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0; shader: flat;"
+      ></a-sphere>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/2.png?v=1716495802509"
+        position="4.61863 -1.80628 -6.10045"
+        scale="7 7 4"
+        rotation="0 -45 0"
+        material="alphaTest: 0.01;"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/1.png?v=1716495801858"
+        position="0 -0.17476 -8.55196"
+        scale="7 7 7"
+        material="alphaTest: 0.01;"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/3.png?v=1716495803089"
+        position="3.98373 -0.17476 -7.74043"
+        rotation="0 -24.95 0"
+        scale="7 7 7"
+        material="alphaTest: 0.01;"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/catgirl.png"
+        position="7.97597 -0.17476 -3.79143"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -45 0"
+      ></a-image>
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/catgirl2.png"
+        position="7.97597 -0.17476 -2.4848"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -45 0"
+      ></a-image>
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/leafcat.png"
+        position="7.37555 -0.17476 -1.32634"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -70.83 0"
+      ></a-image>
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/boxguy.png"
+        position="6.56378 -0.17476 -5.14535"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -37.18 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/yogamat.png"
+        position="5.41031 -0.18961 4.25573"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="-90 -90 0"
+      ></a-image>
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/goose.png"
+        position="5.41031 0.71241 4.15932"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -119.99999999999999 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/funparksign.png"
+        position="4.67352 1.41241 6.21774"
+        scale="3 3 3"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -145.44 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/frogstage.png"
+        position="7.05778 0.5 2.56984"
+        scale="3 3 3"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -119.99999999999999 0"
+      ></a-image>
+      <a-image
+        animation="property: rotation;
+                             from: -0 -119.99999999999999 10;
+                             to: 0 -119.99999999999999 -10;
+                             loop: true; 
+                             dur:250;
+                             easing:linear;
+                              dir: alternate;
+                             autoplay: true"
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/frogdance.png"
+        position="7.05778 1 2.56984"
+        scale="3 3 3"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -119.99999999999999 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dogday.png"
+        position="8.14556 0.25847 0.2617"
+        scale="3 3 3"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -119.99999999999999 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/castle1.png"
+        position="-6.848 2.11203 -5.68848"
+        rotation="0 45 0"
+        scale="4 4 4"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/funcastle.png"
+        position="-5.31826 2 -7.40651"
+        rotation="0 45 0"
+        scale="4 3 4"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/volcano.png?v=1720638699669"
+        position="-8.03471 2.08968 -5.23282"
+        rotation="0 45 0"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/mushrooms1.png"
+        position="-8.8348 1.593 -3.37824"
+        rotation="0 70.01 0"
+        scale="4 2 4"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/mushrooms2.png"
+        position="-8.30758 1 -1.73686"
+        rotation="0 70.01 0"
+        scale="2 1 2"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/parkpool.png"
+        position="-3.72191 0.37769 -1.73686"
+        rotation="-90 0 0"
+        scale="6 5 6"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <!------>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table.png?v=1718648393794"
+        position="-6.13962 1.00334 0.58791"
+        rotation="0 -86.85 0.01"
+        scale="2 1.5 2"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table2.png?v=1718648393794"
+        position="-4.85149 1.00334 3.77705"
+        rotation="0 -42.28 0.01"
+        scale="2 1.5 2"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        animate-swings=""
+        position="-8.7652 2.65235 2.81746"
+        rotation="-10.18 -69.62 0"
+        scale="6 6 6"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        animate-shipride=""
+        position="-2.20168 2.41276 8.47731"
+        rotation="0 -11.890000000000002 0"
+        s
+        scale="5 5 5"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        animate-dinoslide=""
+        position="6.51648 1.87017 -6.78765"
+        rotation="0 -41.25 0"
+        scale="6 6 6"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        animate-dinoslide=""
+        position="6.51648 1.87017 -6.78765"
+        rotation="0 -41.25 0"
+        scale="6 6 6"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/lemonadestand.png"
+        position="1.56731 0.71241 7.49088"
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+        rotation="0 -166 0"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/squareguy.png?v=1720638060599"
+        position="-0.58648 0.6062 8.47731"
+        rotation="0 -11.890000000000002 0"
+        s=""
+        scale="2 2 2"
+        material="alphaTest: 0.01"
+        geometry=""
+      ></a-image>
+
+      <a-entity position="0 4 0">
+        <a-entity rotation="0 0 0" position="0 0 0">
+          <a-entity
+            animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:200000;
+                            easing: linear;
+                             autoplay: true"
+            id="runner1"
+          >
+            <a-image
+              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship.png?v=1718648391271"
+              position="6 0.89187 -0.12287"
+              rotation="40 0 0"
+              width="1"
+              height="0.5"
+              look-at-camera
+              material="alphaTest: 0.5; transparent: true;"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="0 5 0">
+        <a-entity rotation="0 0 0" position="0 0 0">
+          <a-entity
+            animation="property: rotation;
+                            
+                             to: 0 -360 0;
+                             loop: true; 
+                             dur:250000;
+                            easing: linear;
+                             autoplay: true"
+            id="airship"
+          >
+            <a-image
+              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/balloon.png?v=1718648391654"
+              position="-5.5 0.89187 -0.12287"
+              rotation="40 0 0"
+              width="2"
+              height="2"
+              look-at-camera
+              material="alphaTest: 0.5; transparent: true;"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-entity position="0 4 0">
+        <a-entity rotation="0 0 0" position="0 0 0">
+          <a-entity
+            animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:100000;
+                            easing: linear;
+                             autoplay: true"
+            id="helicopter"
+          >
+            <a-image
+              src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/helicopter.png"
+              position="-5.5 0.89187 -0.12287"
+              rotation="40 0 0"
+              width="2"
+              height="2"
+              look-at-camera
+              material="alphaTest: 0.5; transparent: true;"
+            ></a-image>
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        animation="property: position;
+                             from: 0 0 0;
+                             to: 0 0.1 0;
+                             loop: true; 
+                             dur:1000;
+                             dir: alternate;
+                            easing: linear;
+                             autoplay: true"
+        id="snakes"
+      >
+        <a-entity position="-3.7338 0.8 -1.65852" rotation="0 90 0">
+          <a-image
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/snakes.png"
+            scale="1.5 1.5 1.5"
+            material="alphaTest: 0.01"
+            geometry=""
+          ></a-image>
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        animation="property: position;
+                             from: 0 0 0;
+                             to: 0 0.1 0;
+                             loop: true; 
+                             dur:1200;
+                             dir: alternate;
+                            easing: linear;
+                             autoplay: true"
+        id="boxguy"
+      >
+        <a-entity position="-4.36695 0.50004 -0.79932" rotation="0 74.22 0">
+          <a-image
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/boxguy.png"
+            scale="1 1 1"
+            material="alphaTest: 0.01"
+            geometry=""
+          ></a-image>
+        </a-entity>
+      </a-entity>
+
+      <!--- look at camera-->
+      <script>
+        AFRAME.registerComponent("look-at-camera", {
+          tick: function () {
+            // Get the camera position
+            var camera = document.querySelector("a-camera");
+            var cameraPosition = camera.getAttribute("position");
+
+            // Get the current position and rotation of the entity
+            var entityPosition = this.el.getAttribute("position");
+            var entityRotation = this.el.getAttribute("rotation");
+
+            // Calculate the rotation that the entity should have to face the camera
+            var targetRotation =
+              (Math.atan2(
+                cameraPosition.x - entityPosition.x,
+                cameraPosition.z - entityPosition.z
+              ) *
+                180) /
+              Math.PI;
+
+            // Set the rotation of the entity to face the camera
+            this.el.setAttribute("rotation", {
+              x: entityRotation.x,
+              y: targetRotation,
+              z: entityRotation.z,
+            });
+          },
+        });
+      </script>
+    </a-scene>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0; /* Set your desired background color */
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            filter: blur(100px); /* Adjust the blur amount as needed */
+            animation: subtleAnimation 10s infinite alternate; /* Subtle animation */
+        }
+
+        @keyframes subtleAnimation {
+            0% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+  
+
+    <!-- Your other webpage content goes here -->
+
+    <script>
+        // Generate a random pastel color
+        function getRandomPastelColor() {
+            const hue = Math.floor(Math.random() * 360);
+            const saturation = 50; // Adjust saturation as needed
+            const lightness = 80; // Adjust lightness as needed
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+
+        // Set the background color
+        const backgroundElement = document.getElementById('background');
+        backgroundElement.style.backgroundColor = getRandomPastelColor();
+    </script>
+</body>
+</html>

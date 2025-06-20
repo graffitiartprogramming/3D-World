@@ -1,0 +1,243 @@
+<style>
+body {
+    font-family: Pangolin;
+    background-image: url("https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/chalk.png");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative; /* Added to ensure pseudo-elements are positioned relative to the container */
+}
+
+.header, .main-title, .subtitle, .icons-section, .paragraph-section, .main-website {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.header::before, .main-title::before, .subtitle::before, .icons-section::before, .paragraph-section::before, .main-website::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.header::before {
+    background-color: #5a3d99;
+}
+
+.main-title::before {
+    
+}
+
+.subtitle::before {
+    background-color: white;
+}
+
+.icons-section {
+    background: linear-gradient(to right, #ff0000 2px, transparent 2px), /* Red vertical line */
+                repeating-linear-gradient(
+                    #add8e6, #add8e6 1px, /* Blue line */
+                    transparent 1px, transparent 24px /* Space between lines */
+                );
+    background-size: 100% 26px; /* Adjust based on the line spacing */
+    background-color: #f5f5dc; /* Cream color */
+}
+
+.paragraph-section::before {
+    background-color: white;
+}
+
+.main-website::before {
+    background-color: #5a3d99;
+    height: 10vh; /* Extend to the full height of the viewport */
+    bottom: auto;
+    
+}
+
+.header {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    padding: 25px 8px;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 4vh;
+    color: #e35823;
+    text-shadow: 0.5px 0.5px 0 #f5e379;
+    padding: 20px 8px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 24px;
+    color: #e53935;
+    padding-bottom: 20px;
+}
+
+.content {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.instructions {
+    text-align: left;
+    margin: 20px 0;
+    color: white;
+    text-shadow: 0 0 0;
+    padding: 20px 8px;
+    overflow: hidden;
+}
+
+.instructions img {
+    float: right;
+    max-width: 60%;
+    height: auto;
+    margin-left: 10px;
+    shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+    shape-margin: 15px;
+    -webkit-shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+}
+
+@media screen and (min-width: 361px) {
+    div.instructions {
+        font-size: 45px;
+    }
+
+    .a {
+        font-size: 25px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    div.instructions {
+        font-size: 25px;
+    }
+
+    .a {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    div.instructions {
+        font-size: 60px;
+    }
+
+    .a {
+        font-size: 35px;
+    }
+}
+
+.icons-section {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow */
+    position: relative;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icons div {
+    margin: 0 10px;
+}
+
+.icons img {
+    width: 35vw;
+    max-width: 300px;
+    height: auto;
+}
+
+.icons p {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+}
+
+.paragraph-section {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.main-website {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+}
+
+.pangolin-regular {
+    font-family: "Pangolin", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .container {
+        padding: 0;
+    }
+}
+
+        @keyframes choppy-rotation {
+            0% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+            100% { transform: rotate(-2deg); }
+        }
+
+        #world1 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #world2 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #phone {
+            animation: choppy-rotation 0.8s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+      
+      
+       @keyframes logoscale {
+            0% { transform: scale(100%); }
+            50% { transform: scale(105%); }
+            100% { transform:scale(100%); }
+        }
+
+        .logoscale {
+            animation: logoscale 0.5s infinite;
+             animation-timing-function: cubic-bezier(0.68, 0.27, 1.55);
+        }
+      
+      
+    </style>

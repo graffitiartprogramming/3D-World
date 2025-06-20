@@ -1,0 +1,271 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="https://gap-3d-world.glitch.me/aframe.min.js"></script>
+    <script src="https://gap-3d-world.glitch.me/mindar-image-aframe.prod.js"></script>
+
+    <!--IOS VIDEO COMPATABILITY-->
+    <script>
+      AFRAME.registerComponent("play-on-click", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+          this.addPlayButton = this.addPlayButton.bind(this);
+          this.removePlayButton = this.removePlayButton.bind(this);
+          this.el.addEventListener("loaded", this.addPlayButton);
+          this.el.addEventListener("click", this.removePlayButton);
+        },
+        play: function () {
+          window.addEventListener("click", this.onClick);
+        },
+        pause: function () {
+          window.removeEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.object3D.visible = true;
+          videoEl.play();
+          this.removePlayButton();
+        },
+        addPlayButton: function () {
+          var playButton = document.createElement("a-triangle");
+          playButton.setAttribute("scale", "0.2 0.2 0.2");
+          playButton.setAttribute("position", "0 0 0.1");
+          playButton.setAttribute("color", "#fff");
+          playButton.setAttribute("rotation", "0 0 30");
+          playButton.setAttribute(
+            "material",
+            "side: double; transparent: true; opacity: 0.8;"
+          );
+          playButton.setAttribute("play-video", "");
+          this.el.appendChild(playButton);
+          this.playButton = playButton;
+        },
+        removePlayButton: function () {
+          if (this.playButton) {
+            this.playButton.object3D.visible = false;
+          }
+        },
+      });
+
+      AFRAME.registerComponent("play-video", {
+        init: function () {
+          this.onClick = this.onClick.bind(this);
+          this.el.addEventListener("click", this.onClick);
+        },
+        onClick: function (evt) {
+          var videoEl = this.el.parentNode.getAttribute("material").src;
+          if (!videoEl) {
+            return;
+          }
+          this.el.parentNode.object3D.visible = true;
+          videoEl.play();
+          this.el.parentNode.components["play-on-click"].removePlayButton();
+        },
+      });
+    </script>
+
+    <style>
+      #splash {
+        font-family: Courier;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Black translucent background */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* Set the z-index to be on top of everything else */
+      }
+
+      #splash h1 {
+        font-size: 3em;
+        color: white;
+      }
+
+      #splash p {
+        font-size: 1.5em;
+        color: white;
+        margin-top: 1em;
+      }
+
+      /* Hide the splash screen when it's clicked */
+      #splash.clicked {
+        display: none;
+      }
+    </style>
+
+    <script>
+      AFRAME.registerComponent("model-opacity", {
+        schema: { default: 1.0 },
+        init: function () {
+          this.el.addEventListener("model-loaded", this.update.bind(this));
+        },
+        update: function () {
+          var mesh = this.el.getObject3D("mesh");
+          var data = this.data;
+          if (!mesh) {
+            return;
+          }
+          mesh.traverse(function (node) {
+            if (node.isMesh) {
+              node.material.opacity = 1;
+              node.material.transparent = true;
+              node.material.needsUpdate = true;
+            }
+          });
+        },
+      });
+    </script>
+  </head>
+  <body>
+    <div id="splash">
+      <h1>Instructions</h1>
+      <center>
+        <img
+          src="https://cdn.glitch.global/937b71eb-5edd-4927-a143-9af0071946f2/hand%20graphic.svg?v=1679248516544"
+        />
+        <p>
+          View provided art through your device's camera for full experience
+        </p>
+        <br />
+        <p>click anywhere to start</p>
+      </center>
+    </div>
+
+    <a-scene
+      mindar-image="imageTargetSrc: https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/telusexampletargets.mind?v=1713380437878;
+                           filterMinCF:0.0001; filterBeta: 0.01
+                    
+                    warmupTolerance: 0.1;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+        <img
+          id="texture1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/R0010143_20231024131342.jpeg?v=1713380565581"
+        />
+        <a-asset-item
+          id="model1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphere.obj?v=1713380568144"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-entity rotation="90 0 0" scale="1.7 1.7 1.7">
+          <!--- These planes clip the model-->
+          <a-plane
+            position="0 -0.0033 -1.82813"
+            width="1"
+            height="0.25"
+            rotation="-90 0 0"
+            material="shader: flat; transparent: true; opacity: 0; order: 1;"
+            geometry="width: 5; height: 3"
+          ></a-plane>
+          <a-plane
+            position="0 -0.0033 1.80212"
+            width="1"
+            height="0.25"
+            rotation="-90 0 0"
+            material="shader: flat; transparent: true; opacity: 0; order: 1;"
+            geometry="width: 5; height: 3"
+          ></a-plane>
+          <a-plane
+            position="-1.81243 -0.0033 0"
+            width="1"
+            height="0.25"
+            rotation="-90 90 0"
+            material="shader: flat; transparent: true; opacity: 0; order: 1;"
+            geometry="width: 5; height: 3"
+          ></a-plane>
+          <a-plane
+            position="1.82237 -0.0033 0"
+            width="1"
+            height="0.25"
+            rotation="-90 90 0"
+            material="shader: flat; transparent: true; opacity: 0; order: 1;"
+            geometry="width: 5; height: 3"
+          ></a-plane>
+          
+
+          <!a-obj-model
+    id="ground"
+    src="#model1"
+    position="0 -0.01 0"
+    rotation="-90 0 0"
+    scale="0.5 0.5 0.5"
+    material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0;"
+                       model-opacity
+  ><!/a-obj-model>
+
+          <a-entity
+            scale="0.05 0.05 0.05"
+            position="0 -0.01 0"
+            rotation="-90 0 0"
+          >
+            <a-obj-model
+              id="ground"
+              src="#model1"
+              position="0 1 0"
+              rotation="0 0 0"
+              scale="10 10 10"
+              material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0;"
+              model-opacity
+            ></a-obj-model>
+
+              <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/2.png?v=1716495802509"
+        position="4.61863 -1.80628 -6.10045"
+        scale="8 8 5"
+        rotation="0 -45 0"
+        material="alphaTest: 0.01;"
+      ></a-image>
+
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/1.png?v=1716495801858"
+        position="0 -0.17476 -8.55196"
+        scale="8 8 8"
+        material="alphaTest: 0.01;"
+      ></a-image>
+      
+      <a-image
+        src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/3.png?v=1716495803089"
+       position="3.98373 -0.17476 -7.74043"
+               rotation="0 -24.95 0"
+        scale="8 8 8"
+        material="alphaTest: 0.01;"
+      ></a-image>
+      
+          </a-entity>
+        </a-entity>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      // Add an event listener to the document that listens for a click on the splash screen
+      document.getElementById("splash").addEventListener("click", function () {
+        // Add the "clicked" class to the splash screen, which will hide it
+        this.classList.add("clicked");
+      });
+    </script>
+
+    <script>
+      function startTyping() {
+        var poemText = document.querySelector("#poem-text");
+        poemText.setAttribute("value", "");
+        poemText.setAttribute("animation", "to: The full text of your poem");
+      }
+    </script>
+  </body>
+</html>

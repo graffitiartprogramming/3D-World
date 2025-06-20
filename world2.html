@@ -1,0 +1,612 @@
+<html>
+  <head>
+       <title>World 2</title>
+    
+      <!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRB6ZZ4G95"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-CRB6ZZ4G95');
+
+</script>
+    
+    <script src="https://gap-3d-world.glitch.me/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/n5ro/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    
+    <!--IMPORT ANIMATION JS-->
+     <script src="https://gap-3d-world.glitch.me//animate-birds.js"></script>
+    <script src="https://gap-3d-world.glitch.me//animate-airship2.js"></script>
+    
+    
+    
+    <!---VERTICAL PITCH touch controls--->
+    <script>
+      AFRAME.components["look-controls"].Component.prototype.onTouchMove =
+        function (t) {
+          var PI_2 = Math.PI / 2,
+            e,
+            o = this.el.sceneEl.canvas,
+            i = this.yawObject,
+            j = this.pitchObject;
+          this.touchStarted &&
+            this.data.touchEnabled &&
+            ((e =
+              (2 * Math.PI * (t.touches[0].pageX - this.touchStart.x)) /
+              o.clientWidth),
+            (f =
+              (2 * Math.PI * (t.touches[0].pageY - this.touchStart.y)) /
+              o.clientHeight),
+            (j.rotation.x += 0.3 * f),
+            (i.rotation.y += 0.5 * e),
+            (j.rotation.x = Math.max(-PI_2, Math.min(PI_2, j.rotation.x))),
+            (this.touchStart = {
+              x: t.touches[0].pageX,
+              y: t.touches[0].pageY,
+            }));
+        };
+    </script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+  </head>
+  <body>
+    
+     
+    
+    
+    <a-scene vr-mode-ui="enabled: false" physics="debug: true;" >
+      <a-assets>
+        <img
+          id="texture1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/rbcourt.JPG?v=1727128092229
+               "
+        />
+        <a-asset-item
+          id="model1"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/hemisphere.obj?v=1713380568144"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity id="cameraRig" position="0 0 0">
+        <a-entity
+          rotation="0 0 0"
+          id="pov"
+          animation="property: position; startEvents: go"
+        >
+          <a-camera look-controls wasd-controls-enabled="true" id="camera">
+            <a-entity
+              cursor="rayOrigin: mouse"
+              raycaster="objects: #clickablePlane"
+            >
+            </a-entity>
+          </a-camera>
+        </a-entity>
+      </a-entity>
+
+      
+       <a-assets>
+       <a-asset-item
+          id="stage"
+          src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/track.gltf?v=1718650395249"
+        ></a-asset-item> 
+    </a-assets>
+      
+      
+      
+      
+      
+      <a-sphere
+        id="ground"
+        src="#model1"
+        position="0 1 0"
+        rotation="0 -125 0"
+        scale="10 10 10"
+        material="src: #texture1; side: double; wrapS: repeat; wrapT: repeat; repeat: -1 1; offset: 0.5 0; shader: flat;"
+                shadow="cast: false; receive: false"
+      ></a-sphere>
+      
+     
+    
+       <a-entity gltf-model="#stage" 
+                shadow="cast: false; receive: false"
+                rotation="0 -200 0"
+                 scale="1.7 1.7 1.7"
+                 position="0 -0.2 0"
+                >
+      </a-entity>
+      
+      
+      
+      
+      <!-- DECOR ----->
+     
+      <a-entity  position="0 5 0" >
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  animation="property: rotation;
+                            
+                             to: 0 -360 0;
+                             loop: true; 
+                             dur:30000;
+                            easing: linear;
+                             autoplay: true"
+                  id="birds1"
+                  >
+          <a-image
+            animate-birds
+            position="5.06207 0.27495 -0.12069" 
+            rotation="40 -88.82684190289787 0"
+            width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      <a-entity  position="0 5 0" >
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:30000;
+                            easing: linear;
+                             autoplay: true"
+                  id="airship2"
+                  >
+          <a-image
+            animate-airship2
+           position="3.09369 1.056 -5.4176" 
+                   rotation="40 -45 0"
+            width="3"
+            height="2"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+
+      
+      <a-entity  position="0 4 0" >
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  animation="property: rotation;
+                            
+                             to: 0 360 0;
+                             loop: true; 
+                             dur:100000;
+                            easing: easeInOutQuad;
+                             autoplay: true"
+                  id="airship1"
+                  >
+          <a-image
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship.png"
+           position="7.47027 1.46735 -0.11955"
+            rotation="40 0 0"
+            width="1"
+            height="0.5"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+      
+      
+      <a-entity  position="0 5 0" >
+    
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  animation="property: rotation;
+                            
+                             to: 0 -360 0;
+                             loop: true; 
+                             dur:120000;
+                            easing: easeInOutQuad;
+                             autoplay: true"
+                  id="balloon1"
+                  >
+          <a-image
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/balloon.png?v=1718648391654"
+            position="-7.68928 2.00322 -0.11839"
+            rotation="40 0 0"
+            width="1"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+      
+      
+      <a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/tree.png?v=1718821007145" 
+               position="9.06824 0.89187 -2.74291" 
+               rotation="0 -88.8 0" 
+               width="1" 
+               height="2" 
+               look-at-camera="" 
+               material="alphaTest: 0.5"></a-image>
+      
+      <a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/tree.png?v=1718821007145" 
+              position="4.61248 1.13609 -8.65223" 
+               rotation="0 -45.6 0"
+               width="1" 
+               height="2" 
+               look-at-camera="" 
+               material="alphaTest: 0.5"></a-image>
+      
+      
+           <a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/tree2.png" 
+               position="3.30669 1.16012 -8.65223" 
+              rotation="0 -28.06195473034809 0"
+               width="1" 
+               height="2" 
+               look-at-camera="" 
+               material="alphaTest: 0.5"></a-image>
+      
+      
+      
+      
+      
+      
+      
+      
+       <a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table.png?v=1718648393794" 
+              position="-4.37888 0.8 -8.45263" 
+              rotation="0 28.24 0"
+               width="2" 
+               height="1.5" 
+               look-at-camera="" 
+               material="alphaTest: 0.5"></a-image>
+      
+      <a-image src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/table.png?v=1718648393794" 
+               position="-6.5697 0.8 -6.50598" 
+               rotation="0 49 0" 
+               width="2" 
+               height="1.5" 
+               look-at-camera="" 
+               material="alphaTest: 0.5"></a-image>
+      
+
+      <!--CARS ----->
+      
+      
+      
+      <a-entity  position="0 0 0"  rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  
+                  id="car1"
+                  
+                  >
+          <a-image
+                   id="car1image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car1.png"
+            position="-8 0.5 -0.12287"
+           width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+       <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                  
+                  id="car2"
+                  >
+          <a-image
+                   id="car2image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car2.png"
+            position="-7.5 0.5 -0.12287"
+            rotation="0 0 0"
+            width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+       <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                 
+                  id="car3"
+                  >
+          <a-image
+                   id="car3image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car3.png"
+            position="-7 0.5 -0.12287"
+            rotation="0 0 0"
+           width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+      
+      <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                 
+                  id="car4"
+                  >
+          <a-image
+                   id="car4image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car4.png"
+            position="-6.5 0.5 -0.12287"
+            rotation="0 0 0"
+          width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+       <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                 
+                  id="car5"
+                  >
+          <a-image
+                   id="car5image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car5.png"
+            position="-6 0.5 -0.12287"
+            rotation="0 0 0"
+           width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+       <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                 
+                  id="car6"
+                  >
+          <a-image
+                   id="car6image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car6.png"
+            position="-5.5 0.5 -0.12287"
+            rotation="0 0 0"
+           width="1.5"
+            height="1"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+      
+       <a-entity  position="0 0 0" rotation="0 -120 0">
+      <a-entity rotation="0 0 0" position="0 0 0" >
+        <a-entity 
+                 
+                  id="car7"
+                  >
+          <a-image
+                   id="car7image"
+            src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/car7.png"
+            position="-5 0.5 -0.12287"
+            rotation="0 0 0"
+           width="1.5"
+            height="1.5"
+            
+                   look-at-camera
+                   material="alphaTest: 0.5; transparent: true;"
+                   
+          ></a-image>
+        </a-entity>
+        </a-entity>
+      </a-entity>
+
+      
+      
+      
+      <!---randomize speed--->
+ <script>
+      function randomizeDuration(carId) {
+        const minDuration = 9000;
+        const maxDuration = 20000;
+        const randomDuration = Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
+        const carEntity = document.getElementById(carId);
+
+        // Get current rotation
+        const currentRotation = carEntity.object3D.rotation.y * (180 / Math.PI); // Convert radians to degrees
+
+        // Remove existing animation
+        carEntity.removeAttribute('animation');
+
+        // Set the new animation starting from the current rotation
+        carEntity.setAttribute('animation', {
+          property: 'rotation',
+          from: `0 ${currentRotation} 0`,
+          to: `0 ${360 + currentRotation} 0`,
+          loop: true,
+          dur: randomDuration,
+          easing: 'linear',
+          autoplay: true
+        });
+      }
+
+      function randomizeInterval(carId) {
+        const minInterval = 1000;
+        const maxInterval = 5000;
+        const randomInterval = Math.floor(Math.random() * (maxInterval - minInterval + 1)) + minInterval;
+        
+        setTimeout(() => {
+          randomizeDuration(carId);
+          randomizeInterval(carId); // Call the function recursively
+        }, randomInterval);
+      }
+
+let isAnyCounterWinner = false;
+
+// Function to create and update counters
+function createAndTrackCounter(carId, counterId) {
+    let counter = 0;
+    let isFirstCounter = false;
+
+    // Create a counter element
+    const counterElement = document.createElement('div');
+    counterElement.id = counterId;
+    counterElement.style.position = 'absolute';
+    counterElement.style.top = `${10 + (counterId * 50)}px`; // Increased spacing between counters
+    counterElement.style.left = '10px';
+    counterElement.style.color = 'white';
+    counterElement.style.fontSize = '20px';
+    counterElement.style.fontFamily = 'Comic Sans MS, Comic Sans,'; // Kid-friendly font
+    counterElement.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    counterElement.style.padding = '10px';
+    counterElement.style.marginBottom = '20px'; // Add margin between counters
+    counterElement.style.borderRadius = '5px';
+    counterElement.innerText = `${carId}: ${counter}`;
+    document.body.appendChild(counterElement);
+
+    // Track rotation
+    setInterval(() => {
+        const carEntity = document.getElementById(carId);
+        const currentRotation = carEntity.object3D.rotation.y * (180 / Math.PI); // Convert radians to degrees
+        const rotations = Math.floor(currentRotation / 360);
+        counter = rotations;
+        counterElement.innerText = `${carId}: ${counter}`;
+
+        // Check if counter is 1 and mark as winner
+        if (counter === 3 && !isAnyCounterWinner && !isFirstCounter) {
+            isAnyCounterWinner = true;
+            isFirstCounter = true;
+            counterElement.style.backgroundColor = 'green'; // Set color to green for the winning counter
+        }
+    }, 1000); // Update every second
+}
+
+
+      // Initial call to randomize the durations and intervals on page load
+      window.onload = function() {
+        randomizeDuration('car1');
+        randomizeInterval('car1');
+        createAndTrackCounter('car1', 1);
+
+        randomizeDuration('car2');
+        randomizeInterval('car2');
+        createAndTrackCounter('car2', 2);
+
+        randomizeDuration('car3');
+        randomizeInterval('car3');
+        createAndTrackCounter('car3', 3);
+
+        randomizeDuration('car4');
+        randomizeInterval('car4');
+        createAndTrackCounter('car4', 4);
+        
+        randomizeDuration('car5');
+        randomizeInterval('car5');
+        createAndTrackCounter('car5', 5);
+        
+        randomizeDuration('car6');
+        randomizeInterval('car6');
+        createAndTrackCounter('car6', 6);
+        
+        randomizeDuration('car7');
+        randomizeInterval('car7');
+        createAndTrackCounter('car7', 7);
+      };
+    </script>
+      
+      
+     
+      <!--- look at camera-->
+      <script>
+        AFRAME.registerComponent("look-at-camera", {
+          tick: function () {
+            // Get the camera position
+            var camera = document.querySelector("a-camera");
+            var cameraPosition = camera.getAttribute("position");
+
+            // Get the current position and rotation of the entity
+            var entityPosition = this.el.getAttribute("position");
+            var entityRotation = this.el.getAttribute("rotation");
+
+            // Calculate the rotation that the entity should have to face the camera
+            var targetRotation =
+              (Math.atan2(
+                cameraPosition.x - entityPosition.x,
+                cameraPosition.z - entityPosition.z
+              ) *
+                180) /
+              Math.PI;
+
+            // Set the rotation of the entity to face the camera
+            this.el.setAttribute("rotation", {
+              x: entityRotation.x,
+              y: targetRotation,
+              z: entityRotation.z,
+            });
+          },
+        });
+      </script>
+    </a-scene>
+  </body>
+</html>

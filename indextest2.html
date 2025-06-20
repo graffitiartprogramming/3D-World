@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <title>3D World: Inner City Inspirations</title>
+    <style>
+        body {
+            font-family: Pangolin;
+            background-color: grey;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: white;
+        }
+
+        .header, .main-title, .subtitle, .icons-section, .paragraph-section, .main-website {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .header {
+            font-family: Arial, sans-serif;
+            background-color: #5a3d99;
+            color: white;
+            text-align: center;
+            padding: 25px 8px;
+            font-size: 3vh;
+            font-weight: bold;
+        }
+
+        .main-title {
+            text-align: center;
+            font-size: 4vh;
+            color: #e35823;
+            text-shadow: 0.5px 0.5px 0 #f5e379;
+            background-image: url("https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/chalk.png?v=1720199002854");
+            background-size: cover;
+            padding: 20px 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 24px;
+            color: #e53935;
+            background-color: #4b4b4b;
+            padding-bottom: 20px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        .instructions {
+            text-align: left;
+            margin: 20px 0;
+            color: white;
+            text-shadow: 0 0 0;
+            padding: 20px 8px;
+            overflow: hidden;
+        }
+
+        .instructions img {
+            float: right;
+            max-width: 60%;
+            height: auto;
+            margin-left: 10px;
+            shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+            shape-margin: 15px;
+            -webkit-shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+        }
+      
+      
+      
+      @media screen and (min-width: 361px) {
+            div.instructions {
+                font-size: 45px;
+            }
+ 
+            .a {
+                font-size: 25px;
+                text-align: center;
+            }
+        }
+ 
+        @media screen and (max-width: 360px) {
+            div.instructions {
+                font-size: 25px;
+            }
+ 
+            .a {
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+ 
+        @media screen and (min-width: 800px) {
+            div.instructions {
+                font-size: 60px;
+            }
+ 
+            .a {
+                font-size: 35px;
+            }
+        }
+
+      
+      
+      
+
+        .icons-section {
+    padding: 20px;
+    background: linear-gradient(to right, #ff0000 2px, transparent 2px), /* Red vertical line */
+                repeating-linear-gradient(
+                    #add8e6, #add8e6 1px, /* Blue line */
+                    transparent 1px, transparent 24px /* Space between lines */
+                );
+    background-size: 100% 26px; /* Adjust based on the line spacing */
+    background-color: #f5f5dc; /* Cream color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add drop shadow */
+    position: relative;
+}
+
+
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .icons div {
+            margin: 0 10px;
+        }
+
+        .icons img {
+            width: 35vw;
+            max-width: 300px;
+            height: auto;
+        }
+
+        .icons p {
+            font-size: 18px;
+            margin: 10px 0 0 0;
+        }
+
+        .paragraph-section {
+            background-color: white;
+            padding: 20px 20px;
+            margin-top: 20px;
+        }
+
+        .main-website {
+            background-color: #5a3d99;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .pangolin-regular {
+            font-family: "Pangolin", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                padding: 0;
+            }
+        }
+
+        @keyframes choppy-rotation {
+            0% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+            100% { transform: rotate(-2deg); }
+        }
+
+        #world1 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #world2 {
+            animation: choppy-rotation 0.5s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+
+        #phone {
+            animation: choppy-rotation 0.8s infinite;
+            animation-timing-function: cubic-bezier(0.68, -0.5, 0.27, 1.55);
+        }
+      
+      
+       @keyframes logoscale {
+            0% { transform: scale(100%); }
+            50% { transform: scale(105%); }
+            100% { transform:scale(100%); }
+        }
+
+        .logoscale {
+            animation: logoscale 0.5s infinite;
+             animation-timing-function: cubic-bezier(0.68, 0.27, 1.55);
+        }
+      
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            GRAFFITI ART PROGRAMMING
+        </div>
+        <div class="main-title">
+            <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/3dworld%20title.png?v=1720389160217" 
+                 width="100%" 
+                 height="auto" 
+                 align="center"
+                class="logoscale">
+            <br>Inner City Kids, Inner City Inspirations<br>
+            <div class="instructions">
+                <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251"
+                     class="choppy-animated"
+                     id="phone">
+                Click the icons below to explore digital worlds created by inner city youth as they help reimagine Winnipeg's North End.
+            </div>
+        </div>
+        <div class="subtitle">
+            ----
+        </div>
+        <div class="content">
+            <div class="icons-section">
+                <div class="icons">
+                    <div>
+                        <a href="https://gap-3d-world.glitch.me/exhibitionspace-example.html">
+                            <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/world1.png" 
+                                 height="auto" 
+                                 class="choppy-animated"
+                                 id="world1">
+                        </a>
+
+                    </div>
+                    <div>
+                        <a href="https://gap-3d-world.glitch.me/court-example.html">
+                            <img src="https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/world2.png" 
+                                 height="auto" 
+                                 class="choppy-animated"
+                                 id="world2">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="paragraph-section" style="font-size: 20px;">
+                <p>"3D World" is a project created during Graffiti Art Programming Inc.’s st.ART Program in the summer of 2024 with participants from Ralph Brown Community Centre.
+                3D World turns Inner City kids into inspirers who reimagine their own community spaces through a blend of augmented reality (AR) and virtual reality (VR).
+                By merging the creative visions of youth, their drawings and designs become valuable assets, fueling the AR/VR experiences created together as they turn dreams into dreamscapes - imaginary landscapes that encapsulate the ambitious visions of neighborhood transformation.</p>
+              <div>
+                <a href="https://gap-3d-world.glitch.me/about.html"> Click to learn more ...  </a>
+              </div>
+            </div>
+        </div>
+        <a href="#" class="main-website">Main Website</a>
+    </div>
+</body>
+</html>
