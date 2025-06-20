@@ -1,7 +1,7 @@
 <style>
 body {
     font-family: Pangolin;
-    background-image: url("https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/chalk.png");
+    background-image: url("https://graffitiartprogramming.github.io/3D-World/chalk.png");
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -109,9 +109,9 @@ body {
     max-width: 60%;
     height: auto;
     margin-left: 10px;
-    shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+    shape-outside: url('https://graffitiartprogramming.github.io/3D-World/phoneicon.png?v=1720389161251');
     shape-margin: 15px;
-    -webkit-shape-outside: url('https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/phoneicon.png?v=1720389161251');
+    -webkit-shape-outside: url('https://graffitiartprogramming.github.io/3D-World/phoneicon.png?v=1720389161251');
 }
 
 @media screen and (min-width: 361px) {

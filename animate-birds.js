@@ -6,12 +6,12 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/birds1.png"
+            "https://graffitiartprogramming.github.io/3D-World/birds1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/birds2.png"
+            "https://graffitiartprogramming.github.io/3D-World/birds2.png"
           )
         );
 

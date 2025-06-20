@@ -6,32 +6,32 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings1.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings2.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings3.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings4.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings5.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/swings6.png"
+            "https://graffitiartprogramming.github.io/3D-World/swings6.png"
           )
         );
         

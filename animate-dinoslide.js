@@ -6,27 +6,27 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dinoslide1.png"
+            "https://graffitiartprogramming.github.io/3D-World/dinoslide1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dinoslide2.png"
+            "https://graffitiartprogramming.github.io/3D-World/dinoslide2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dinoslide3.png"
+            "https://graffitiartprogramming.github.io/3D-World/dinoslide3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dinoslide4.png"
+            "https://graffitiartprogramming.github.io/3D-World/dinoslide4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/dinoslide5.png"
+            "https://graffitiartprogramming.github.io/3D-World/dinoslide5.png"
           )
         );
 

@@ -6,45 +6,45 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship201.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship201.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship202.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship202.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship203.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship203.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship204.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship204.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship205.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship205.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship206.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship206.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship206.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship206.png"
           )
         );this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship206.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship206.png"
           )
         );this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/airship206.png"
+            "https://graffitiartprogramming.github.io/3D-World/airship206.png"
           )
         );
 

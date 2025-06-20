@@ -6,72 +6,72 @@
         this.pngArray = [];
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship1.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship1.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship2.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship3.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship4.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship5.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship6.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship6.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship7.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship7.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship7.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship7.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship6.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship6.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship5.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship5.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship4.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship4.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship3.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship3.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship2.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship2.png"
           )
         );
         this.pngArray.push(
           loader.load(
-            "https://cdn.glitch.global/6d57de3d-722e-4de3-a986-24d54c962ab6/ship1.png"
+            "https://graffitiartprogramming.github.io/3D-World/ship1.png"
           )
         );
 
